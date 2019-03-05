@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-r_path = os.getcwd()
+r_path = os.path.dirname(os.path.abspath(__file__))
 
 
 def getfile():
@@ -15,7 +15,7 @@ def getfile():
     path2=r_path
     #跳转目录 跳转到下载文件的目录，获得下载文件目录里面的ｌｉｓｔ之后，然后再跳转出来
     os.chdir(path1)
-    flist=os.listdir()
+    flist=os.listdir(path1)
     os.chdir(path2)
     return flist
 

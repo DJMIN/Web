@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+# !/usr/bin/python
 import pymysql
 from flask import Flask, request, render_template,send_from_directory,url_for
 import os

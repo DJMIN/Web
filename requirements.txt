@@ -1,0 +1,5 @@
+flask
+flask-restful
+flask_httpauth
+flask_login
+flask-cors

@@ -1,26 +1,14 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/python
-import pymysql
+
 from flask import Flask, request, render_template,send_from_directory,url_for
 import os
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-
-
 r_path = 'C:\\Users\\Chen\\PycharmProjects\\Web'
 
-def insert(user ,idea):
-    db=pymysql.connect("localhost","root","root","test3")
-    cursor=db.cursor()
-    sql="insert into dosomething (user,idea) values ('{}','{}')".format(user,idea)
-    try:
-        cursor.execute(sql)
-        db.commit()
-    except:
-        db.rollback()
-    db.close()
 
 def getfile():
     path1=r_path+'/uploadfile'

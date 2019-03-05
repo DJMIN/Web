@@ -78,7 +78,8 @@ def file():
 #main页面
 @app.route('/')
 def hello():
-    return '<p> flask run in port 5002 </p>'
+    mycss=url_for('static', filename='style.css')
+    return render_template('index.html',mycss=mycss)
 
 #显示下载文件的界面
 @app.route('/down', methods=['GET'])

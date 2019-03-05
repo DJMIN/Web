@@ -17,17 +17,28 @@
 
 <div id="main">
     <div id="main-inner">
+          <div id="topnav">
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li class="sep"> | </li>
+                <li><a href="./file" target="_self">上传一个文件给我</a></li>
+                <li class="sep"> | </li>
+                <li><a href="./down" target="_self">下载上传的文件</a></li>
+                <li class="sep"> | </li>
+                <li><a href="./todosomething" target="_self">还没想好弄点什么</a></li>
+            </ul>
+        <div style="clear:both;"></div>
     <h2>上传一个附件给我？</h2>
         <form action="/uploadfile" method="post" enctype="multipart/form-data">
             <input type='text' name='upfilename' value='不支持文件名是中文的文件' /><br>
             <input type="file" name='file' /><br>          
-            <input type="submit" value='submit'>
+            <input type="submit" value='上传'>
         </form>
     
  <div id="page-content">
      <h2 id="自我介绍">下载一个文件？</h2>
     <ul>
-    <li><a href="/down" target="_blank">看看有什么？</a> </li>
+    <li><a href="/down" target="_self">看看有什么？</a> </li>
     </ul>
  </div>
 

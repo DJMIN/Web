@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-r_path = 'C:\\Users\\Chen\\PycharmProjects\\Web'
+r_path = os.getcwd()
 
 
 def getfile():

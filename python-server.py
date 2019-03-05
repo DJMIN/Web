@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 
-
+r_path = 'C:\\Users\\Chen\\PycharmProjects\\Web'
 
 def insert(user ,idea):
     db=pymysql.connect("localhost","root","root","test3")
@@ -21,24 +21,22 @@ def insert(user ,idea):
     db.close()
 
 def getfile():
-    print (os.getcwd())
-    path1=os.getcwd()+'/uploadfile'
-    path2=os.getcwd()
+    path1=r_path+'/uploadfile'
+    path2=r_path
     #跳转目录 跳转到下载文件的目录，获得下载文件目录里面的ｌｉｓｔ之后，然后再跳转出来
     os.chdir(path1)
     flist=os.listdir()
     os.chdir(path2)
-    print (os.getcwd())
     return flist
 
 def isHavefile(filename):
-    print (os.getcwd())
-    path1=os.getcwd()+'/uploadfile'
-    path2=os.getcwd()
+    # print (os.getcwd())
+    path1=r_path+'/uploadfile'
+    path2=r_path
     os.chdir(path1)
     flag=os.path.isfile(filename)
     os.chdir(path2)
-    print (os.getcwd())
+    # print (os.getcwd())
     return flag
 
 @app.route('/uploadfile', methods=['POST','get'])
@@ -95,12 +93,12 @@ def downloadpage():
 def downloadfile():
     if request.method=='GET':
         downloadfilename=request.args.get('filename')
-        flist=getfile()
-        print ()
-        if isHavefile(downloadfilename):
+        # flist=getfile()
+        # print ()
+        if downloadfilename and isHavefile(downloadfilename):
             return send_from_directory('uploadfile',downloadfilename,as_attachment=True)
         else:
-            abort(404)
+            return '文件未找到', 404
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True,port=5002)
